@@ -1,4 +1,4 @@
-import { toJS, isObservableProp } from 'mobx';
+import { toJS, isObservableProp, spy } from 'mobx';
 import onChangeListener from './on-change-listener';
 import type {
   IConstructableStore,
@@ -86,6 +86,21 @@ class Manager {
     Object.assign(this.options, options || {});
 
     Manager.instance = this;
+
+    if (options?.isEnableDebug) {
+      this.enableDebug();
+    }
+  }
+
+  /**
+   * Enabled debug for react app
+   * @protected
+   */
+  protected enableDebug() {
+    // @ts-ignore
+    window.__STORE_MANEGER__ = this;
+    // @ts-ignore
+    window.__MOBX_SPY__ = spy;
   }
 
   /**

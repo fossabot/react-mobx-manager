@@ -71,6 +71,7 @@ export interface IManagerOptions {
   shouldDisablePersist?: boolean; // e.g. in server side
   shouldRemoveInitState?: boolean; // remove init state for store after initialize
   isSSR?: boolean;
+  isEnableDebug?: boolean;
 }
 
 export type TStores = { [storeKey: string]: IStore | IStorePersisted };

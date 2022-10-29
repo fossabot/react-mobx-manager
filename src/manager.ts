@@ -97,10 +97,8 @@ class Manager {
    * @protected
    */
   protected enableDebug() {
-    // @ts-ignore
-    window.__STORE_MANEGER__ = this;
-    // @ts-ignore
-    window.__MOBX_SPY__ = spy;
+    window['__MOBX_MANAGER__'] = this;
+    window['__MOBX_SPY__'] = spy;
   }
 
   /**
